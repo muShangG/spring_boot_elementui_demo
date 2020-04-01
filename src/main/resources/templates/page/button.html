@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../Layui/lib/layui-v2.5.5/css/layui.css">
+    <script src="../../../Layui/lib/layui-v2.5.5/layui.js"></script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row  layui-col-md-offset3" >
+        <div class="layui-col-xs10 layui-col-sm12 layui-col-md12 layui-col-lg12 " >
+            <div style="margin: 10px 10px 10px 10px ">
+
+            </div>
+            <hr>
+            <div style="margin: 10px 10px 10px 10px ">
+                <button type="button" class="layui-btn layui-btn-primary">初始按钮</button>
+                <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+                <button type="button" class="layui-btn"><i class="layui-icon layui-icon-search"></i></button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-fluid">
+
+    <div class="layui-row">
+        <div class="layui-col-md12 layui-col-xs9 layui-col-md12 layui-col-lg12">
+            <button type="button" class="layui-btn layui-btn-primary">原始按钮</button>
+            <button type="button" class="layui-btn">默认按钮</button>
+            <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+            <button type="button" class="layui-btn layui-btn-warm">暖色按钮</button>
+            <button type="button" class="layui-btn layui-btn-danger">警告按钮</button>
+            <button type="button" class="layui-btn layui-btn-disabled">禁用按钮</button>
+        </div>
+        <div class="layui-col-md12 layui-col-xs9 layui-col-md12 layui-col-lg12" style="margin-top: 10px">
+            <button type="button" class="layui-btn layui-btn-primary">原始按钮</button>
+            <button type="button" class="layui-btn">默认按钮</button>
+            <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+            <button type="button" class="layui-btn layui-btn-warm">暖色按钮</button>
+            <button type="button" class="layui-btn layui-btn-danger">警告按钮</button>
+            <button type="button" class="layui-btn layui-btn-disabled">禁用按钮</button>
+        </div>
+        <div class="layui-col-md12 layui-col-xs9 layui-col-md12 layui-col-lg12" style="margin-top: 10px">
+            <div class="layui-input-block">
+                <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" title="开关">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+    //监听指定开关
+    form.on('switch(switchTest)', function(data){
+        layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+            offset: '6px'
+        });
+        layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+    });
+</script>
