@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring_boot_elementui_demo.mapper.TblUsersInfoDao">
+  <resultMap id="BaseResultMap" type="com.example.spring_boot_elementui_demo.entity.TblUsersInfo">
+    <id column="Yggh" jdbcType="VARCHAR" property="yggh" />
+    <result column="YgId" jdbcType="INTEGER" property="ygid" />
+    <result column="Ygxm" jdbcType="VARCHAR" property="ygxm" />
+    <result column="ksId" jdbcType="INTEGER" property="ksid" />
+    <result column="Pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="Role_Id" jdbcType="INTEGER" property="roleId" />
+    <result column="PhotoUrl" jdbcType="VARCHAR" property="photourl" />
+    <result column="Pwdupdatetime" jdbcType="TIMESTAMP" property="pwdupdatetime" />
+    <result column="Ygzt" jdbcType="INTEGER" property="ygzt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Yggh, YgId, Ygxm, ksId, Pwd, Role_Id, PhotoUrl, Pwdupdatetime, Ygzt
+  </sql>
+  <select id="Find_ALL"  resultType="com.example.spring_boot_elementui_demo.entity.TblUsersInfo">
+        select Yggh, YgId, Ygxm, ksId, Pwd, Role_Id, PhotoUrl, Pwdupdatetime, Ygzt from tbl_users_info
+    </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_users_info
+    where Yggh = #{yggh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tbl_users_info
+    where Yggh = #{yggh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="Yggh" keyProperty="yggh" parameterType="com.example.spring_boot_elementui_demo.entity.TblUsersInfo" useGeneratedKeys="true">
+    insert into tbl_users_info (YgId, Ygxm, ksId, 
+      Pwd, Role_Id, PhotoUrl, 
+      Pwdupdatetime, Ygzt)
+    values (#{ygid,jdbcType=INTEGER}, #{ygxm,jdbcType=VARCHAR}, #{ksid,jdbcType=INTEGER}, 
+      #{pwd,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, #{photourl,jdbcType=VARCHAR}, 
+      #{pwdupdatetime,jdbcType=TIMESTAMP}, #{ygzt,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="Yggh" keyProperty="yggh" parameterType="com.example.spring_boot_elementui_demo.entity.TblUsersInfo" useGeneratedKeys="true">
+    insert into tbl_users_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ygid != null">
+        YgId,
+      </if>
+      <if test="ygxm != null">
+        Ygxm,
+      </if>
+      <if test="ksid != null">
+        ksId,
+      </if>
+      <if test="pwd != null">
+        Pwd,
+      </if>
+      <if test="roleId != null">
+        Role_Id,
+      </if>
+      <if test="photourl != null">
+        PhotoUrl,
+      </if>
+      <if test="pwdupdatetime != null">
+        Pwdupdatetime,
+      </if>
+      <if test="ygzt != null">
+        Ygzt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ygid != null">
+        #{ygid,jdbcType=INTEGER},
+      </if>
+      <if test="ygxm != null">
+        #{ygxm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksid != null">
+        #{ksid,jdbcType=INTEGER},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="photourl != null">
+        #{photourl,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdupdatetime != null">
+        #{pwdupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ygzt != null">
+        #{ygzt,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.spring_boot_elementui_demo.entity.TblUsersInfo">
+    update tbl_users_info
+    <set>
+      <if test="ygid != null">
+        YgId = #{ygid,jdbcType=INTEGER},
+      </if>
+      <if test="ygxm != null">
+        Ygxm = #{ygxm,jdbcType=VARCHAR},
+      </if>
+      <if test="ksid != null">
+        ksId = #{ksid,jdbcType=INTEGER},
+      </if>
+      <if test="pwd != null">
+        Pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        Role_Id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="photourl != null">
+        PhotoUrl = #{photourl,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdupdatetime != null">
+        Pwdupdatetime = #{pwdupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ygzt != null">
+        Ygzt = #{ygzt,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Yggh = #{yggh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.spring_boot_elementui_demo.entity.TblUsersInfo">
+    update tbl_users_info
+    set YgId = #{ygid,jdbcType=INTEGER},
+      Ygxm = #{ygxm,jdbcType=VARCHAR},
+      ksId = #{ksid,jdbcType=INTEGER},
+      Pwd = #{pwd,jdbcType=VARCHAR},
+      Role_Id = #{roleId,jdbcType=INTEGER},
+      PhotoUrl = #{photourl,jdbcType=VARCHAR},
+      Pwdupdatetime = #{pwdupdatetime,jdbcType=TIMESTAMP},
+      Ygzt = #{ygzt,jdbcType=INTEGER}
+    where Yggh = #{yggh,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring_boot_elementui_demo.mapper.SysMenuListDao">
+    <resultMap id="BaseResultMap" type="com.example.spring_boot_elementui_demo.entity.SysMenuList">
+        <id column="menu_id" jdbcType="INTEGER" property="menuId"/>
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName"/>
+        <result column="menu_url" jdbcType="VARCHAR" property="menuUrl"/>
+        <result column="menu_parentid" jdbcType="INTEGER" property="menuParentid"/>
+        <result column="menu_order" jdbcType="INTEGER" property="menuOrder"/>
+        <result column="module_id" jdbcType="INTEGER" property="moduleId"/>
+        <result column="menu_level" jdbcType="INTEGER" property="menuLevel"/>
+        <result column="menu_status" jdbcType="BOOLEAN" property="menuStatus"/>
+        <result column="menu_ico" jdbcType="VARCHAR" property="menuIco"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    menu_id, menu_name, menu_url, menu_parentid, menu_order, module_id, menu_level, menu_status, 
+    menu_ico
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_menu_list
+        where menu_id = #{menuId,jdbcType=INTEGER}
+    </select>
+    <select id="find_menu" resultType="com.example.spring_boot_elementui_demo.entity.SysMenuList">
+ SELECT B.menu_id, B.menu_name, B.menu_Url, B.menu_ParentId, B.menu_order, B.module_Id, B.menu_level, B.menu_ico
+	      FROM tbl_user_menu_Info A inner join sys_menu_list B ON A.menu_id = B.menu_id inner join tbl_users_Info C ON A.YgId = C.YgId
+	     WHERE A.YgId = #{ygid} and B.menu_status = 1 and C.Ygzt = 1 ORDER BY B.menu_order
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_menu_list
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" keyColumn="menu_id" keyProperty="menuId"
+            parameterType="com.example.spring_boot_elementui_demo.entity.SysMenuList" useGeneratedKeys="true">
+    insert into sys_menu_list (menu_name, menu_url, menu_parentid, 
+      menu_order, module_id, menu_level, 
+      menu_status, menu_ico)
+    values (#{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{menuParentid,jdbcType=INTEGER}, 
+      #{menuOrder,jdbcType=INTEGER}, #{moduleId,jdbcType=INTEGER}, #{menuLevel,jdbcType=INTEGER}, 
+      #{menuStatus,jdbcType=BOOLEAN}, #{menuIco,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" keyColumn="menu_id" keyProperty="menuId"
+            parameterType="com.example.spring_boot_elementui_demo.entity.SysMenuList" useGeneratedKeys="true">
+        insert into sys_menu_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuName != null">
+                menu_name,
+            </if>
+            <if test="menuUrl != null">
+                menu_url,
+            </if>
+            <if test="menuParentid != null">
+                menu_parentid,
+            </if>
+            <if test="menuOrder != null">
+                menu_order,
+            </if>
+            <if test="moduleId != null">
+                module_id,
+            </if>
+            <if test="menuLevel != null">
+                menu_level,
+            </if>
+            <if test="menuStatus != null">
+                menu_status,
+            </if>
+            <if test="menuIco != null">
+                menu_ico,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="menuName != null">
+                #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="menuUrl != null">
+                #{menuUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="menuParentid != null">
+                #{menuParentid,jdbcType=INTEGER},
+            </if>
+            <if test="menuOrder != null">
+                #{menuOrder,jdbcType=INTEGER},
+            </if>
+            <if test="moduleId != null">
+                #{moduleId,jdbcType=INTEGER},
+            </if>
+            <if test="menuLevel != null">
+                #{menuLevel,jdbcType=INTEGER},
+            </if>
+            <if test="menuStatus != null">
+                #{menuStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="menuIco != null">
+                #{menuIco,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.spring_boot_elementui_demo.entity.SysMenuList">
+        update sys_menu_list
+        <set>
+            <if test="menuName != null">
+                menu_name = #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="menuUrl != null">
+                menu_url = #{menuUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="menuParentid != null">
+                menu_parentid = #{menuParentid,jdbcType=INTEGER},
+            </if>
+            <if test="menuOrder != null">
+                menu_order = #{menuOrder,jdbcType=INTEGER},
+            </if>
+            <if test="moduleId != null">
+                module_id = #{moduleId,jdbcType=INTEGER},
+            </if>
+            <if test="menuLevel != null">
+                menu_level = #{menuLevel,jdbcType=INTEGER},
+            </if>
+            <if test="menuStatus != null">
+                menu_status = #{menuStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="menuIco != null">
+                menu_ico = #{menuIco,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where menu_id = #{menuId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.spring_boot_elementui_demo.entity.SysMenuList">
+    update sys_menu_list
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_url = #{menuUrl,jdbcType=VARCHAR},
+      menu_parentid = #{menuParentid,jdbcType=INTEGER},
+      menu_order = #{menuOrder,jdbcType=INTEGER},
+      module_id = #{moduleId,jdbcType=INTEGER},
+      menu_level = #{menuLevel,jdbcType=INTEGER},
+      menu_status = #{menuStatus,jdbcType=BOOLEAN},
+      menu_ico = #{menuIco,jdbcType=VARCHAR}
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </update>
+</mapper>

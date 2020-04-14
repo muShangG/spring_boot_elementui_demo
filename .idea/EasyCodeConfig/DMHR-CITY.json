@@ -1,0 +1,31 @@
+{
+  "name" : "City",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "cityId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "cityName",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "regionId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.example.spring_boot_elementui_demo",
+  "savePath" : "./src/main/java/com/example/spring_boot_elementui_demo",
+  "saveModelName" : "spring_boot_elementui_demo"
+}
