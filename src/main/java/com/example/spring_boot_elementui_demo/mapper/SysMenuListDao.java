@@ -18,5 +18,5 @@ public interface SysMenuListDao {
 
     int updateByPrimaryKey(SysMenuList record);
 
-    List<SysMenuList>find_menu(Integer ygid);
+    List<SysMenuList>find_menu(Integer ygid,Integer menu_parentid);
 }

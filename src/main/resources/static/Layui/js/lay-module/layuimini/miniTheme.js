@@ -193,11 +193,11 @@ layui.define(["jquery", "layer"], function (exports) {
                     '<div class="color-content">\n' +
                     '<ul>\n' + bgColorHtml + '</ul>\n' +
                     '</div>\n' +
-                    '<div class="more-menu-list">\n' +
+                  /*  '<div class="more-menu-list">\n' +
                     '<a class="more-menu-item" href="http://layuimini.99php.cn/docs/" target="_blank"><i class="layui-icon layui-icon-read" style="font-size: 19px;"></i> 开发文档</a>\n' +
                     '<a class="more-menu-item" href="https://github.com/zhongshaofa/layuimini" target="_blank"><i class="layui-icon layui-icon-tabs" style="font-size: 16px;"></i> 开源地址</a>\n' +
                     '<a class="more-menu-item" href="http://layuimini.99php.cn" target="_blank"><i class="layui-icon layui-icon-theme"></i> 官方网站</a>\n' +
-                    '</div>' +
+                    '</div>' +*/
                     '</div>';
                 layer.open({
                     type: 1,
@@ -206,7 +206,7 @@ layui.define(["jquery", "layer"], function (exports) {
                     shade: 0.2,
                     anim: 2,
                     shadeClose: true,
-                    id: 'layuiminiBgColor',
+                        id: 'layuiminiBgColor',
                     area: ['340px', clientHeight + 'px'],
                     offset: 'rb',
                     content: html,

@@ -25,7 +25,12 @@
     <select id="find_menu" resultType="com.example.spring_boot_elementui_demo.entity.SysMenuList">
  SELECT B.menu_id, B.menu_name, B.menu_Url, B.menu_ParentId, B.menu_order, B.module_Id, B.menu_level, B.menu_ico
 	      FROM tbl_user_menu_Info A inner join sys_menu_list B ON A.menu_id = B.menu_id inner join tbl_users_Info C ON A.YgId = C.YgId
-	     WHERE A.YgId = #{ygid} and B.menu_status = 1 and C.Ygzt = 1 ORDER BY B.menu_order
+	     WHERE A.YgId = #{ygid}
+	     <if test="menu_parentid!=null">
+
+             and menu_parentid=#{menu_parentid}
+         </if>
+	     and B.menu_status = 1 and C.Ygzt = 1 ORDER BY B.menu_order
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sys_menu_list
